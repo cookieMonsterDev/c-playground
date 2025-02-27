@@ -35,7 +35,7 @@ All extensions already installed in profile , un all code via configured `tasks.
     // Data types
 
     int age = 25;               // integer number
-    float length = 184.5;       // float number
+    float length = 184.5123456789;       // float number
     char symbol = 'C';          // single character (works only with single quotes)
     char str[] = "some string"; // string, all string are represented by array to string is basically an object
     _Bool is_cool = false;       // boolean (require <stdbool.h>)
@@ -44,7 +44,50 @@ All extensions already installed in profile , un all code via configured `tasks.
 
     printf("Your age %d, (integer number)\n", age);
     printf("Your length %f, (float number)\n", length);
+    printf("Your length %.4f, (float number with precision)\n", length);
     printf("Your lang %c, (single character)\n", symbol);
     printf("Your string %s, (string)\n", str);
     printf("Your are %d, (boolean)\n", is_cool);
+```
+
+## User input
+
+```c
+    // Create an int and a char variable
+    int myNum;
+    char myChar;
+
+    // Ask the user to type a number AND a character
+    printf("Type a number AND a character and press enter: \n");
+
+    // Get and save the number AND character the user types
+    scanf("%d %c", &myNum, &myChar);
+
+    // Print the number
+    printf("Your number is: %d\n", myNum);
+
+    // Print the character
+    printf("Your character is: %c\n", myChar);
+```
+
+## Strings
+
+## Arrays
+
+```c
+
+    // Default array usage
+    int myNumbers[] = {25, 50, 75, 100};
+    myNumbers[0] = 33;
+
+    printf("%d", myNumbers[0]);
+
+    // Array of strings
+    char *arr[] = {"test-1", "test-2", "test-3"};
+
+    // Matrix
+    int matrix[2][3] = { {1, 4, 2}, {3, 6, 8} };
+
+    // 2-D Array (important to predefined length of subarrays)
+    int array[][3] = { {1, 4, 2}, {3, 6, 8} };
 ```

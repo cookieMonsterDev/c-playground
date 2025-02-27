@@ -1,0 +1,70 @@
+# Object files
+*.o
+*.obj
+*.lo
+*.la
+*.al
+*.libs
+
+# Executables
+a.out
+a.exe
+*.out
+*.exe
+
+# Debug files
+*.dSYM/
+*.pdb
+*.ilk
+
+# Compiled libraries
+*.lib
+*.a
+*.so
+*.dylib
+*.dll
+
+# IDE and editor files
+.vscode/
+*.code-workspace
+*.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+*.cache
+*.pid
+*.seed
+
+# CMake and build directories
+CMakeCache.txt
+CMakeFiles/
+build/
+cmake-build-*/
+
+# Autotools generated files
+Makefile
+Makefile.in
+config.h
+config.h.in
+configure
+config.log
+config.status
+autom4te.cache/
+
+# Code coverage files
+*.gcno
+*.gcda
+*.gcov
+
+# Dependency files
+*.d
+
+# Other OS-specific files
+.DS_Store
+Thumbs.db
