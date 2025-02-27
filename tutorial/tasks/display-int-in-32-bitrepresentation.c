@@ -27,7 +27,7 @@ int count1(unsigned int num)
 
 int main()
 {
-    char choise;
+    char choice;
     unsigned int inputInt;
     unsigned int bitPosition;
 
@@ -52,7 +52,7 @@ int main()
         printf("After toggling, the number has %d set bit(s)\n", sum);
 
         printf("Do you want to toggle another bit? (y/n): ");
-        scanf(" %c", &choice);
+        scanf("%c", &choice);
 
     } while (choice == 'y' || choice == 'Y');
 
