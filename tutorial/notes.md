@@ -1,5 +1,9 @@
 ## Quick setup
 
+```bash
+gcc main.c -o main -lm; ./main
+```
+
 All extensions already installed in profile , un all code via configured `tasks.json` that can be created `Terminal` -> `Configure tasks`.
 
 ## Data Types Table

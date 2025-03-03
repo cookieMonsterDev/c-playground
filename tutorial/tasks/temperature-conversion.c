@@ -15,7 +15,7 @@ typedef struct
     double convertedTemp;
 } Temps;
 
-_Bool validateUnit(char unit)
+bool validateUnit(char unit)
 {
     _Bool isValid = false;
     switch (unit)
@@ -38,19 +38,19 @@ _Bool validateUnit(char unit)
 TempConversionUnits getTempUnits()
 {
     char unitFrom, unitTo;
-    _Bool isValid = false;
+    bool isValid = false;
     TempConversionUnits units;
 
     do
     {
         printf("\nEnter temperature unit [unitFrom, unitTo]. e.g. (F C): ");
-        scanf("%c %c", &units.unitFrom, &units.unitTo);
+        scanf(" %c %c", &units.unitFrom, &units.unitTo);
 
         units.unitTo = toupper(units.unitTo);
         units.unitFrom = toupper(units.unitFrom);
 
-        _Bool isUnitToValid = validateUnit(units.unitTo);
-        _Bool isUnitFromValid = validateUnit(units.unitFrom);
+        bool isUnitToValid = validateUnit(units.unitTo);
+        bool isUnitFromValid = validateUnit(units.unitFrom);
 
         if (!isUnitToValid)
         {
