@@ -77,8 +77,6 @@ int main()
     printf("\nEnter the temperature value: ");
     scanf("%lf", &temps.originalTemp);
 
-    printf("%c %c", units.unitFrom, units.unitTo);
-
     if (units.unitFrom == 'C')
     {
         switch (units.unitTo)

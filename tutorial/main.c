@@ -1,128 +1,29 @@
-#include <math.h>
 #include <stdio.h>
-#include <ctype.h>
-#include <stdbool.h>
-
-typedef struct
-{
-    char unitFrom;
-    char unitTo;
-} TempConversionUnits;
-
-typedef struct
-{
-    double originalTemp;
-    double convertedTemp;
-} Temps;
-
-_Bool validateUnit(char unit)
-{
-    _Bool isValid = false;
-    switch (unit)
-    {
-    case 'F':
-        isValid = true;
-        break;
-    case 'C':
-        isValid = true;
-        break;
-    case 'K':
-        isValid = true;
-        break;
-    default:
-        isValid = false;
-    }
-    return isValid;
-}
-
-TempConversionUnits getTempUnits()
-{
-    char unitFrom, unitTo;
-    _Bool isValid = false;
-    TempConversionUnits units;
-
-    do
-    {
-        printf("\nEnter temperature unit [unitFrom, unitTo]. e.g. (F C): ");
-        scanf("%c %c", &units.unitFrom, &units.unitTo);
-
-        units.unitTo = toupper(units.unitTo);
-        units.unitFrom = toupper(units.unitFrom);
-
-        _Bool isUnitToValid = validateUnit(units.unitTo);
-        _Bool isUnitFromValid = validateUnit(units.unitFrom);
-
-        if (!isUnitToValid)
-        {
-            printf("\nThe unitTo is invalid");
-        };
-
-        if (!isUnitFromValid)
-        {
-            printf("\nThe unitFrom is invalid");
-        };
-
-        isValid = isUnitToValid && isUnitFromValid;
-
-    } while (!isValid);
-
-    return units;
-}
+#include <stdlib.h>
+#include <string.h>
 
 int main()
 {
-    Temps temps;
-    TempConversionUnits units = getTempUnits();
+    int array1[] = {1, 2, 3};
+    int array2[] = {4, 5, 6};
 
-    printf("\nEnter the temperature value: ");
-    scanf("%lf", &temps.originalTemp);
+    int *ptr;
 
-    printf("%c %c", units.unitFrom, units.unitTo);
+    int n1 = sizeof(array1) / sizeof(array1[0]);
+    int n2 = sizeof(array2) / sizeof(array2[0]);
 
-    if (units.unitFrom == 'C')
+    ptr = malloc((n1 * sizeof(int) + (n2 * sizeof(int))));
+
+    memcpy(ptr, array1, n1 * sizeof(int));
+
+    memcpy(ptr + n1, array2, n2 * sizeof(int));
+
+    for (int i = 0; i < (n1 + n2); i++)
     {
-        switch (units.unitTo)
-        {
-        case 'F':
-            temps.convertedTemp = temps.originalTemp * (9.0 / 5.0) + 32;
-            break;
-        case 'K':
-            temps.convertedTemp = temps.originalTemp + 273.15;
-            break;
-        default:
-            break;
-        }
-    }
-    else if (units.unitFrom == 'F')
-    {
-        switch (units.unitTo)
-        {
-        case 'C':
-            temps.convertedTemp = (temps.originalTemp - 32) * (5.0 / 9.0);
-            break;
-        case 'K':
-            temps.convertedTemp = (temps.originalTemp - 32) * (5.0 / 9.0) + 273.15;
-            break;
-        default:
-            break;
-        }
-    }
-    else if (units.unitFrom == 'K')
-    {
-        switch (units.unitTo)
-        {
-        case 'C':
-            temps.convertedTemp = temps.originalTemp - 273.15;
-            break;
-        case 'F':
-            temps.convertedTemp = (temps.originalTemp - 273.15) * (9.0 / 5.0) + 32;
-            break;
-        default:
-            break;
-        }
-    }
+        printf("%d ", ptr[i]);
+    };
 
-    printf("\nThe %.1lf(%c) is %.1lf(%c)\n", temps.originalTemp, units.unitFrom, temps.convertedTemp, units.unitTo);
+    free(ptr);
 
     return 0;
-};
+}
